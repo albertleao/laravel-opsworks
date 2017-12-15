@@ -1,5 +1,5 @@
 case node[:platform]
-when "debian", "ubuntu"
+when "debian", "ubuntu" do
   execute "add_repo" do
     user "root"
     command "add-apt-repository ppa:ondrej/php"
