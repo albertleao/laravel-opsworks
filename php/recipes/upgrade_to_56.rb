@@ -13,11 +13,9 @@ when "debian", "ubuntu"
   end
 
   execute "apt_package" do
-    apt_package ['php5.6', 'php5.6-mbstring', 'php5.6-mcrypt', 'php5.6-mysql', 'php5.6-xml'] do
-      retries 3
-      retry_delay 5
-      notifies :run, 'execute[disable_php5_apache]', :delayed
-    end
+    user "root"
+    command "apt-get install php5.6 php5.6-mbstring php5.6-mcrypt php5.6-mysql php5.6-xml"
+    notifies :run, 'execute[disable_php5_apache]', :delayed
   end
 
   execute "disable_php5_apache" do
