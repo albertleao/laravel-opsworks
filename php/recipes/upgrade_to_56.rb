@@ -12,7 +12,7 @@ when "debian", "ubuntu"
     notifies :run, 'execute[apt_install]', :immediately
   end
 
-  execute "apt_package" do
+  execute "apt_install" do
     user "root"
     command "apt-get install php5.6 php5.6-mbstring php5.6-mcrypt php5.6-mysql php5.6-xml"
     notifies :run, 'execute[disable_php5_apache]', :delayed
