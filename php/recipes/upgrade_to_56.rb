@@ -14,7 +14,7 @@ when "debian", "ubuntu"
 
   execute "apt_install" do
     user "root"
-    command "apt-get -y install php5.6 php5.6-mbstring php5.6-mcrypt php5.6-mysql php5.6-xml"
+    command "apt-get -y --force-yes install php5.6 php5.6-mbstring php5.6-mcrypt php5.6-mysql php5.6-xml"
     notifies :run, 'execute[disable_php5_apache]', :delayed
   end
 
