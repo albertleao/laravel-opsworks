@@ -1,12 +1,12 @@
 case node[:platform]
-when "debian", "ubuntu" do
+when "debian", "ubuntu"
   execute "add_repo" do
     user "root"
     command "add-apt-repository ppa:ondrej/php"
     notifies :run, 'execute[apt_update]', :immediately
   end
 
-  execute "apt_update"
+  execute "apt_update" do
     user "root"
     command "apt-get update"
     notifies :run, 'execute[apt_install]', :immediately
